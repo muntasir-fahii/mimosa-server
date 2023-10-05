@@ -1,4 +1,4 @@
- Mimosa
+ # Mimosa
 
 ## Overview
 Welcome to Mimosa Beauty Salon and Spa, your go-to destination for all things beauty and relaxation. This full-stack website allows users to explore various beauty packages and conveniently book their preferred services. In addition, the admin has the power to manage both users and beauty packages efficiently.

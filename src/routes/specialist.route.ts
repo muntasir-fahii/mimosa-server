@@ -14,8 +14,8 @@ specialistRouter.get('/', specialistInstance.getAllSpecialists);
 specialistRouter.get('/:sid', specialistInstance.getASpecialist);
 
 // create a specialist
-specialistRouter.put(
-  '/',
+specialistRouter.post(
+  '/:bid',
   authInstance.isAuthenticated,
   authInstance.isAdmin,
   specialistInstance.createASpecialist
@@ -23,7 +23,7 @@ specialistRouter.put(
 
 // update a specialist
 specialistRouter.put(
-  '/',
+  '/:sid',
   authInstance.isAuthenticated,
   authInstance.isAdmin,
   specialistInstance.updateASpecialist
@@ -31,7 +31,7 @@ specialistRouter.put(
 
 // delete a specialist
 specialistRouter.delete(
-  '/',
+  '/:sid',
   authInstance.isAuthenticated,
   authInstance.isAdmin,
   specialistInstance.deleteASpecialist

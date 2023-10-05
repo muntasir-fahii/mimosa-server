@@ -61,6 +61,12 @@ export default class BookingController {
         res.status(404).json({ message: 'Booking not found' });
       }
 
+      const existedBooking = await BookingModel.findById(bid);
+
+      if (!existedBooking) {
+        res.status(403).json({ message: "Booking doesn't exist" });
+      }
+
       const user = await UserModel.findById(req.user?._id);
 
       const matchedBooking = user?.bookings.find(
@@ -84,7 +90,9 @@ export default class BookingController {
   public async getAllbookings(req: Request, res: Response): Promise<void> {
     try {
       await Promise.resolve().then(async () => {
-        const bookings = await BookingModel.find({});
+        const bookings = await BookingModel.find({}).populate(
+          'beautyPackage user'
+        );
 
         res.status(200).json(bookings);
       });
